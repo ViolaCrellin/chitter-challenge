@@ -1,7 +1,9 @@
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  register Sinatra::Partial
   enable :sessions
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
 
 
   helpers do
@@ -16,5 +18,5 @@ class Chitter < Sinatra::Base
     erb :'user/index'
   end
 
-  run! if app_file == $0
+run!
 end

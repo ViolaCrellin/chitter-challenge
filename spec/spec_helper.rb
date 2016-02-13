@@ -14,7 +14,6 @@ require 'coveralls'
 require 'simplecov'
 require './app/data_mapper_setup.rb'
 
-
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
@@ -42,6 +41,8 @@ Capybara.app = Chitter #CHANGE ME
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  # config.include Rack::Test::Methods
 
   config.include SessionHelpers
 

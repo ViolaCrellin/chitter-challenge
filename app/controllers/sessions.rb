@@ -1,7 +1,8 @@
+require "sinatra/base"
 class Chitter < Sinatra::Base
 
   helpers do
-    
+
     def sign_in_error_type
       if @user.nil? && User.first(user_name: params[:existing_user_name])
         'Access Denied Impersonator'
@@ -29,4 +30,17 @@ class Chitter < Sinatra::Base
     @user = session_user.user_name
     erb :'user/welcome'
   end
+
+
+  get "/chitter" do
+    logout = partial :logout
+    erb :session, :locals => { :logout=> logout }
+  end
+
+  delete '/goodbye' do
+    session[:user_id] = nil
+    flash.keep[:notice_goodbye] = 'We are done... don\'t come crying back'
+    redirect '/'
+  end
+
 end

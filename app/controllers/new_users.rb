@@ -1,3 +1,4 @@
+require "sinatra/base"
 class Chitter < Sinatra::Base
 
 helpers do
@@ -11,6 +12,12 @@ helpers do
   end
 
 end
+
+
+  get '/' do
+    @new_user = User.new
+    erb :'user/index'
+  end
 
   post '/sign_up' do
     @new_user = User.new(user_name: params[:user_name],
@@ -33,4 +40,5 @@ end
     end
     erb :'user/index'
   end
+
 end
