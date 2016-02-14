@@ -1,7 +1,8 @@
-class Chitter < Sinatra::Base
+class Sessions < Sinatra::Base
+  set :public_folder, Proc.new { File.join(root, 'static') }
 
   helpers do
-    
+
     def sign_in_error_type
       if @user.nil? && User.first(user_name: params[:existing_user_name])
         'Access Denied Impersonator'
@@ -29,4 +30,6 @@ class Chitter < Sinatra::Base
     @user = session_user.user_name
     erb :'user/welcome'
   end
+
+    # run if app_file == $0
 end

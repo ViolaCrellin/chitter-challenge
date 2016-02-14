@@ -1,4 +1,4 @@
-class Chitter < Sinatra::Base
+class NewUsers < Sinatra::Base
 
 helpers do
 
@@ -33,4 +33,6 @@ end
     end
     erb :'user/index'
   end
+
+    # run if app_file == $0
 end

@@ -1,7 +1,11 @@
+
+
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+  use Rack::Session::Pool, :expire_after => 2592000
   register Sinatra::Flash
-  enable :sessions
   set :session_secret, 'super secret'
+  set :environment, :test
 
 
   helpers do
@@ -16,5 +20,6 @@ class Chitter < Sinatra::Base
     erb :'user/index'
   end
 
+  # run!
   run! if app_file == $0
 end
