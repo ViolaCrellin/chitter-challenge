@@ -30,6 +30,7 @@
 
     <%@peeps.each do |peep| %>
     <div class="single_peep" id="<% peep.id %>">
+
       <div class="message" >
         <h2><%= peep.peep_message %></h2>
       </div>
@@ -49,6 +50,7 @@
         <h1> Comments on <%= peep.author %>'s Peep </h1>
         <% peep.comments.each do |comment| %>
         <div class="single_comment">
+
           <div class="message">
             <%= comment.comment_message %>
           </div>
@@ -62,7 +64,6 @@
             <p><%= readable_date(comment.created_on) %></p>
           </div>
 
-
         </div>
         <% end %>
       </div>
@@ -71,7 +72,6 @@
         <label for="comment_box">
           <form action="/comment" method="post">
           <textarea rows="2" cols="30" name="peep" class="comment_box">
-            Got a comment <%= session_user.user_name %> ?
           </textarea>
           <label for="submit" class="submitform">
             <input type="hidden" name="peep_id" value="<%= peep.id %>">
@@ -81,8 +81,10 @@
           </form>
         </label>
       </div>
+
     </div>
     <% end %>
-  </body>
   </div>
+  </body>
+
 </html>

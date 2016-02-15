@@ -41,7 +41,7 @@
       <h4> Join the Cult </h4>
       <form action="/sign_up" method="post">
         <% if flash[:error_user_name] %>
-        <%= flash[:error_user_name] %>
+        <%= flash[:error_user_name] %><br></br>
         <% end %>
         <label for="user_name">
           User Name:
@@ -49,7 +49,7 @@
         </label>
 
         <% if flash[:error_email] %>
-        <%= flash[:error_email] %>
+        <%= flash[:error_email] %><br></br>
         <% end %>
 
         <label for="email">
@@ -58,7 +58,7 @@
         </label>
 
         <% if flash[:error_password] %>
-        <%= flash[:error_password] %>
+        <%= flash[:error_password] %><br></br>
         <% end %>
         <label for="password">
           Password:

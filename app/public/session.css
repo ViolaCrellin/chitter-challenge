@@ -73,9 +73,11 @@ textarea {
 }
 
 
+
 textarea.comment_box{
+  flex: 1;
   font-size: 50%;
-  max-width: 500px;
+  /*max-width: 500px;*/
   width: 100%;
   height: 50%;
   float: right;
@@ -86,6 +88,8 @@ textarea.comment_box{
   /*position: absolute;*/
    flex: 1;
    align-self: center;
+   overflow-x: auto;
+   /*word-wrap: break-all;*/
    min-width: 1000px;
   margin-left: 20%;
   margin-right: 20%;
@@ -101,6 +105,7 @@ textarea.comment_box{
 .wrapper>div.single_peep {
   /*position: absolute;*/
  flex: 1;
+   max-width: 1000px;
    min-width: 1000px;
   margin: 10px auto;
   text-align: center;

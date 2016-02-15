@@ -12,8 +12,6 @@ feature 'Peep replies' do
 
   scenario 'comments are stored in the database' do
     expect{comment_on_peep}.to change(Comment, :count)
-
-
   end
 
 

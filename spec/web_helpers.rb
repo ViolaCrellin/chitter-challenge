@@ -137,7 +137,7 @@ module SessionHelpers
     another_post_peep
     within 'div.single_peep' do
       within 'div.comment_box' do
-        fill_in 'comment', with: 'Here\'s a comment'
+        fill_in 'peep', with: 'Here\'s a comment'
         click_button 'Boom Baby'
       end
     end

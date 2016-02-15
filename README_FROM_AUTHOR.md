@@ -1,7 +1,7 @@
 INSTRUCTIONS:
 
 ```
-$ git clone https://github.com/tansaku/chitter_challenge
+$ git clone https://github.com/ViolaCrellin/chitter-challenge.git
 $ bundle
 $ createdb chitter_development
 $ rake auto_migrate
@@ -59,50 +59,57 @@ FUNCTIONALITY, SCREEN SHOTS AND USAGE:
 
 * Makers can sign up, sign in and log out.
 
-```
-![Screenshot](https://path_to_your_image)
-```
 
+![Screenshot](http://i.imgur.com/dPkJjF5.png)
+
+
+
+![Screenshot](http://i.imgur.com/9e1R0oL.png)
+
+![Screenshot]()
 
 * You cannot sign up if your username or password is not unique in the Postgresql database.
 
-```
-![Screenshot](https://path_to_your_image)
-```
-
-
 * You cannot sign in if your password doesn't match the one you signed up with.
 
-```
-![Screenshot](https://path_to_your_image)
-```
+* To help the user sign up after a password confirmation or unique email address/user name failure, the email address and username will remain in the box.
 
+
+![Screenshot](http://i.imgur.com/1NQZn4s.png)
+
+![Screenshot](http://i.imgur.com/bABZLPy.png)
+
+![Screenshot](http://i.imgur.com/PdG35n8.png)
 
 * Passwords are encrypted with Bcrypt
 
 * Non-Makers can see all users' peeps on the Chitter HQ page, but only site members can post peeps.
 
-```
-![Screenshot](https://path_to_your_image)
-```
+
+![Screenshot](http://i.imgur.com/ZW9XaZX.png)
+
 
 
 * Peeps are displayed in reverse chronological order and are stamped with the date, time and author of the peep.  
 
-```
-![Screenshot](https://path_to_your_image)
-```
+
+![Screenshot](http://i.imgur.com/PpflyjL.png)
+
+![Screenshot](http://i.imgur.com/7IOAj7X.png)
+
 * Peep comments are seen in chronological order underneath peeps, stamped with their date, time and author.
 
-```
-![Screenshot](https://path_to_your_image)
-```
+
+![Screenshot](http://i.imgur.com/ARkVzUO.png)
+
 
 TO DO
 
-1. Understand how to get Sinatra and Rspec to work together in the modular style. Currently Rspec fires up Sinatra in the command line, and, when this is rectified, I cannot rackup the localhost site.
+1. WIP files include plans to refactor into a multiple controller model.
 
-2. Further User stories
+2. Plans to make sinatra-partials of posting submission forms to enable easy formatting on future opportunities to comment and post on, say, picture uploads etc.
+
+3. Further User stories
 
 
 FURTHER USER STORIES
@@ -159,7 +166,9 @@ PROJECT CONTENTS:
             peep.rb
             user.rb
           public
-            Will evenutally contain CSS style sheets
+            index.css
+            session.css
+            welcome.css
           views
             index.erb - contains sign up and sign in forms
             welcome.erb - contains a welcome message for new and old users

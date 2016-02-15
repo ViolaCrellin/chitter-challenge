@@ -23,10 +23,9 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     @new_user = User.new(user_name: params[:user_name],
-    password: params[:password],
-    password_confirmation: params[:password_confirmation],
-    email: params[:email])
-
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation],
+                        email: params[:email])
     if @new_user.save
       session[:user_id] = @new_user.id
       redirect '/welcome'
@@ -39,8 +38,8 @@ class Chitter < Sinatra::Base
 
 
   post '/sign_in' do
-    @user =
-      User.authenticate(params[:existing_user_name], params[:existing_password])
+    @user = User.authenticate(params[:existing_user_name],
+                              params[:existing_password])
     if @user
       session[:user_id] = @user.id
       redirect '/welcome'
@@ -64,20 +63,21 @@ class Chitter < Sinatra::Base
     if peep_error?
       flash.next[:peep_error] = peep_error_message
     else
-      @peep =
-        Peep.create(peep_message: params[:peep], author: session_user.user_name)
-      session_user.peeps << @peep
+      peep = Peep.create(peep_message: params[:peep],
+                        author: session_user.user_name)
+      session_user.peeps << peep
       session_user.save
     end
     redirect '/chitter'
   end
 
   post '/comment' do
-  current_peep =
-    Peep.first(id: params[:peep_id].to_i, author: params[:peep_author])
-  @comment =
+    current_peep = Peep.first(id: params[:peep_id].to_i,
+                              author: params[:peep_author])
+                              
     current_peep.comments.create(comment_message: params[:peep],
-    author: session_user.user_name, peep_id: current_peep.id)
+                                author: session_user.user_name,
+                                peep_id: current_peep.id)
     current_peep.save
     redirect '/chitter'
   end
